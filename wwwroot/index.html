@@ -3132,9 +3132,9 @@
             items.filter(i => i.isFolder).forEach(item => {
                 const d = document.createElement('div'); d.className = 'folder-item';
                 d.innerHTML = `<div class="folder-icon-el">📁</div>
-          <div class="folder-name-el">${item.name}</div>
-          <div class="folder-date-el">${item.date}</div>
-          <div class="folder-arrow-el">›</div>`;
+              <div class="folder-name-el">${item.name}</div>
+              <div class="folder-date-el">${item.date}</div>
+              <div class="folder-arrow-el">›</div>`;
                 fl.appendChild(d);
             });
 
@@ -3142,9 +3142,9 @@
             items.filter(i => !i.isFolder).forEach(item => {
                 const d = document.createElement('div'); d.className = 'file-item';
                 d.innerHTML = `<span style="font-size:22px;">📄</span>
-          <span class="file-item-name">${item.name}</span>
-          <span class="file-item-date">${item.date}</span>
-          <button class="file-open-btn" onclick="event.stopPropagation();openFileViewer('${item.dataKey}','${item.name}')">เปิดดู</button>`;
+              <span class="file-item-name">${item.name}</span>
+              <span class="file-item-date">${item.date}</span>
+              <button class="file-open-btn" onclick="event.stopPropagation();openFileViewer('${item.dataKey}','${item.name}')">เปิดดู</button>`;
                 d.onclick = () => openFileViewer(item.dataKey, item.name);
                 ff.appendChild(d);
             });
@@ -3192,18 +3192,18 @@
             items.filter(i => i.isFolder).forEach(item => {
                 const d = document.createElement('div'); d.className = 'folder-item';
                 d.innerHTML = `<div class="folder-icon-el">📁</div>
-          <div class="folder-name-el">${item.name}</div>
-          <div class="folder-date-el">${item.date}</div>
-          <div class="folder-arrow-el">›</div>`;
+              <div class="folder-name-el">${item.name}</div>
+              <div class="folder-date-el">${item.date}</div>
+              <div class="folder-arrow-el">›</div>`;
                 fl.appendChild(d);
             });
 
             items.filter(i => !i.isFolder).forEach(item => {
                 const d = document.createElement('div'); d.className = 'file-item';
                 d.innerHTML = `<span style="font-size:22px;">📄</span>
-          <span class="file-item-name">${item.name}</span>
-          <span class="file-item-date">${item.date}</span>
-          <button class="file-open-btn" onclick="event.stopPropagation();openFileViewer('${item.dataKey}','${item.name}')">เปิดดู</button>`;
+              <span class="file-item-name">${item.name}</span>
+              <span class="file-item-date">${item.date}</span>
+              <button class="file-open-btn" onclick="event.stopPropagation();openFileViewer('${item.dataKey}','${item.name}')">เปิดดู</button>`;
                 d.onclick = () => openFileViewer(item.dataKey, item.name);
                 ff.appendChild(d);
             });
@@ -3218,15 +3218,15 @@
                 const sid = section.replace(/\s/g, '_');
                 const block = document.createElement('div'); block.className = 'admin-doc-section';
                 block.innerHTML = `<div class="admin-doc-section-title">
-          <span>📁 ${section}</span>
-          <button class="adm-add-folder-btn" onclick="admAddFolder('${type}','${section}')">📁 New Folder</button>
-        </div>
-        <div class="adm-folder-list" id="adm-folders-${type}-${sid}"></div>
-        <div class="adm-upload-zone" onclick="document.getElementById('adm-upload-${type}-${sid}').click()">
-          <input type="file" multiple id="adm-upload-${type}-${sid}" onchange="admHandleFiles(event,'${type}','${section}')">
-          📎 คลิกเพื่อแนบเอกสาร (รองรับทุกประเภทไฟล์)
-        </div>
-        <div id="adm-files-${type}-${sid}" style="margin-top:8px;"></div>`;
+              <span>📁 ${section}</span>
+              <button class="adm-add-folder-btn" onclick="admAddFolder('${type}','${section}')">📁 New Folder</button>
+            </div>
+            <div class="adm-folder-list" id="adm-folders-${type}-${sid}"></div>
+            <div class="adm-upload-zone" onclick="document.getElementById('adm-upload-${type}-${sid}').click()">
+              <input type="file" multiple id="adm-upload-${type}-${sid}" onchange="admHandleFiles(event,'${type}','${section}')">
+              📎 คลิกเพื่อแนบเอกสาร (รองรับทุกประเภทไฟล์)
+            </div>
+            <div id="adm-files-${type}-${sid}" style="margin-top:8px;"></div>`;
                 c.appendChild(block);
                 renderAdmDocList(type, section);
             });
@@ -3401,13 +3401,13 @@
         function renderRestroomDisplay() {
             const d = loadHC(currentMonthIdx, currentPlant);
             document.getElementById('restroom-display').innerHTML = `<div>
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;"><span style="font-size:32px;">👨</span><div style="font-size:18px;font-weight:700;color:#00897b;">Male</div></div>
-        <div class="restroom-row"><div class="restroom-label">Urinal</div><div class="stat-box stat-pass"><div class="stat-label">Pass</div><div class="stat-val">${d.urinalPass || 0}</div></div><div class="stat-box stat-fail"><div class="stat-label">Fail</div><div class="stat-val">${d.urinalFail || 0}</div></div><div class="stat-box stat-total"><div class="stat-label">Total</div><div class="stat-val">${(d.urinalPass || 0) + (d.urinalFail || 0)}</div></div></div>
-        <div class="restroom-row"><div class="restroom-label">Restroom</div><div class="stat-box stat-pass"><div class="stat-label">Pass</div><div class="stat-val">${d.mRestPass || 0}</div></div><div class="stat-box stat-fail"><div class="stat-label">Fail</div><div class="stat-val">${d.mRestFail || 0}</div></div><div class="stat-box stat-total"><div class="stat-label">Total</div><div class="stat-val">${(d.mRestPass || 0) + (d.mRestFail || 0)}</div></div></div>
-      </div><div>
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;"><span style="font-size:32px;">👩</span><div style="font-size:18px;font-weight:700;color:#e91e63;">Female</div></div>
-        <div class="restroom-row"><div class="restroom-label">Restroom</div><div class="stat-box stat-pass"><div class="stat-label">Pass</div><div class="stat-val">${d.fRestPass || 0}</div></div><div class="stat-box stat-fail"><div class="stat-label">Fail</div><div class="stat-val">${d.fRestFail || 0}</div></div><div class="stat-box stat-total"><div class="stat-label">Total</div><div class="stat-val">${(d.fRestPass || 0) + (d.fRestFail || 0)}</div></div></div>
-      </div>`;
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;"><span style="font-size:32px;">👨</span><div style="font-size:18px;font-weight:700;color:#00897b;">Male</div></div>
+            <div class="restroom-row"><div class="restroom-label">Urinal</div><div class="stat-box stat-pass"><div class="stat-label">Pass</div><div class="stat-val">${d.urinalPass || 0}</div></div><div class="stat-box stat-fail"><div class="stat-label">Fail</div><div class="stat-val">${d.urinalFail || 0}</div></div><div class="stat-box stat-total"><div class="stat-label">Total</div><div class="stat-val">${(d.urinalPass || 0) + (d.urinalFail || 0)}</div></div></div>
+            <div class="restroom-row"><div class="restroom-label">Restroom</div><div class="stat-box stat-pass"><div class="stat-label">Pass</div><div class="stat-val">${d.mRestPass || 0}</div></div><div class="stat-box stat-fail"><div class="stat-label">Fail</div><div class="stat-val">${d.mRestFail || 0}</div></div><div class="stat-box stat-total"><div class="stat-label">Total</div><div class="stat-val">${(d.mRestPass || 0) + (d.mRestFail || 0)}</div></div></div>
+          </div><div>
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;"><span style="font-size:32px;">👩</span><div style="font-size:18px;font-weight:700;color:#e91e63;">Female</div></div>
+            <div class="restroom-row"><div class="restroom-label">Restroom</div><div class="stat-box stat-pass"><div class="stat-label">Pass</div><div class="stat-val">${d.fRestPass || 0}</div></div><div class="stat-box stat-fail"><div class="stat-label">Fail</div><div class="stat-val">${d.fRestFail || 0}</div></div><div class="stat-box stat-total"><div class="stat-label">Total</div><div class="stat-val">${(d.fRestPass || 0) + (d.fRestFail || 0)}</div></div></div>
+          </div>`;
         }
         function renderElevatorDisplay() {
             const d = loadHC(currentMonthIdx, currentPlant);
@@ -3450,8 +3450,8 @@
             else { img.style.display = 'none'; if (ph) ph.style.display = 'block'; if (hint) hint.style.display = 'block'; }
             const iGrid = document.getElementById('space-info-display');
             iGrid.innerHTML = `
-        <div class="space-info-box"><label>Factory Area</label><div style="font-size:22px;font-weight:900;color:#2e7d32;">${info.factoryArea || '—'}</div><div class="unit">sqm</div></div>
-        <div class="space-info-box"><label>Building Area</label><div style="font-size:22px;font-weight:900;color:#2e7d32;">${info.buildingArea || '—'}</div><div class="unit">sqm</div></div>`;
+            <div class="space-info-box"><label>Factory Area</label><div style="font-size:22px;font-weight:900;color:#2e7d32;">${info.factoryArea || '—'}</div><div class="unit">sqm</div></div>
+            <div class="space-info-box"><label>Building Area</label><div style="font-size:22px;font-weight:900;color:#2e7d32;">${info.buildingArea || '—'}</div><div class="unit">sqm</div></div>`;
             const buD = document.getElementById('space-bu-display'); buD.innerHTML = '';
             (info.buAreas || []).forEach(bu => {
                 buD.innerHTML += `<div class="space-bu-box"><label>${bu.label}</label><div style="font-size:18px;font-weight:900;color:#e53935;">${bu.val || '—'}</div><div style="font-size:12px;color:#555;">sqm</div></div>`;
@@ -3466,7 +3466,7 @@
                 const rowStyle = 'display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #e0e0e0;font-size:12px;';
                 const secHdr = (t) => `<div style="background:#1565c0;color:#fff;font-weight:700;padding:4px 8px;border-radius:4px;margin:6px 0 4px;font-size:12px;">${t}</div>`;
                 let html = `<div style="background:#f5f5f5;border-radius:8px;padding:10px 14px;">
-          <div style="font-weight:700;color:#1565c0;margin-bottom:6px;">📐 Area Details</div>`;
+              <div style="font-weight:700;color:#1565c0;margin-bottom:6px;">📐 Area Details</div>`;
                 if (areaData.overall) html += `<div style="${rowStyle}"><span>Overall</span><span style="font-weight:700;">${areaData.overall} sqm</span></div>`;
                 if (areaData.factoryRows && areaData.factoryRows.length) {
                     html += secHdr('2 · Factory Building');
@@ -3521,10 +3521,10 @@
             const div = document.createElement('div'); div.id = id;
             div.style.cssText = 'display:grid;grid-template-columns:30px 1fr 100px 1fr 30px;gap:6px;align-items:center;padding:5px 8px;border-bottom:1px solid #f0f0f0;';
             div.innerHTML = `<span style="font-size:11px;color:#90a4ae;text-align:center;">—</span>
-      <input class="adm-input" id="${id}-name" value="${r.name || ''}" style="text-align:left;padding:4px 8px;" placeholder="ชื่อรายการ">
-      <input class="adm-input" id="${id}-sqm" value="${r.sqm || ''}" placeholder="sqm">
-      <input class="adm-input" id="${id}-detail" value="${r.detail || ''}" style="text-align:left;padding:4px 8px;" placeholder="Detail">
-      <button class="row-del-btn" onclick="document.getElementById('${id}').remove()">✕</button>`;
+          <input class="adm-input" id="${id}-name" value="${r.name || ''}" style="text-align:left;padding:4px 8px;" placeholder="ชื่อรายการ">
+          <input class="adm-input" id="${id}-sqm" value="${r.sqm || ''}" placeholder="sqm">
+          <input class="adm-input" id="${id}-detail" value="${r.detail || ''}" style="text-align:left;padding:4px 8px;" placeholder="Detail">
+          <button class="row-del-btn" onclick="document.getElementById('${id}').remove()">✕</button>`;
             c.appendChild(div);
         }
         function getSpaceRows(type) {
@@ -3544,9 +3544,9 @@
             row.id = `adm-bu-row-${i}`;
             row.style.cssText = 'display:grid;grid-template-columns:140px 120px 1fr 30px;gap:8px;align-items:center;margin-bottom:8px;';
             row.innerHTML = `<input class="adm-input" id="adm-bu-label-${i}" value="${bu.label || ''}" style="text-align:left;padding:5px 8px;" placeholder="ชื่อ BU">
-      <input class="adm-input" id="adm-bu-val-${i}" type="text" value="${bu.val || ''}" placeholder="sqm">
-      <input class="adm-input" id="adm-bu-detail-${i}" value="${bu.detail || ''}" style="text-align:left;padding:5px 8px;" placeholder="Detail...">
-      <button class="row-del-btn" onclick="document.getElementById('adm-bu-row-${i}').remove()">✕</button>`;
+          <input class="adm-input" id="adm-bu-val-${i}" type="text" value="${bu.val || ''}" placeholder="sqm">
+          <input class="adm-input" id="adm-bu-detail-${i}" value="${bu.detail || ''}" style="text-align:left;padding:5px 8px;" placeholder="Detail...">
+          <button class="row-del-btn" onclick="document.getElementById('adm-bu-row-${i}').remove()">✕</button>`;
             list.appendChild(row);
         }
         function admGetBUAreas() {
@@ -3583,14 +3583,14 @@
             const totRow = document.getElementById('bu-total-row');
             const tr = document.createElement('tr'); tr.id = `bu-tr-${i}`;
             tr.innerHTML = `<td>${i + 1}</td><td class="bu-name"><input class="bu-hc-input" id="bu-name-${i}" value="${d?.name || 'BU ' + (i + 1)}" style="text-align:left;"></td>
-      <td><input class="bu-hc-input" id="hc_${i}_dF" type="number" min="0" value="${d?.dF || 0}"></td>
-      <td><input class="bu-hc-input" id="hc_${i}_dM" type="number" min="0" value="${d?.dM || 0}"></td>
-      <td><input class="bu-hc-input" id="hc_${i}_dMH" type="number" min="0" value="${d?.dMH || 0}"></td>
-      <td><input class="bu-hc-input" id="hc_${i}_sF" type="number" min="0" value="${d?.sF || 0}"></td>
-      <td><input class="bu-hc-input" id="hc_${i}_sM" type="number" min="0" value="${d?.sM || 0}"></td>
-      <td><input class="bu-hc-input" id="hc_${i}_sMH" type="number" min="0" value="${d?.sMH || 0}"></td>
-      <td class="total-col" id="hc-rt-${i}">0</td><td class="total-col" id="hc-mh-${i}">0</td>
-      <td><button class="row-del-btn" onclick="document.getElementById('bu-tr-${i}').remove();updateHCTotals()">✕</button></td>`;
+          <td><input class="bu-hc-input" id="hc_${i}_dF" type="number" min="0" value="${d?.dF || 0}"></td>
+          <td><input class="bu-hc-input" id="hc_${i}_dM" type="number" min="0" value="${d?.dM || 0}"></td>
+          <td><input class="bu-hc-input" id="hc_${i}_dMH" type="number" min="0" value="${d?.dMH || 0}"></td>
+          <td><input class="bu-hc-input" id="hc_${i}_sF" type="number" min="0" value="${d?.sF || 0}"></td>
+          <td><input class="bu-hc-input" id="hc_${i}_sM" type="number" min="0" value="${d?.sM || 0}"></td>
+          <td><input class="bu-hc-input" id="hc_${i}_sMH" type="number" min="0" value="${d?.sMH || 0}"></td>
+          <td class="total-col" id="hc-rt-${i}">0</td><td class="total-col" id="hc-mh-${i}">0</td>
+          <td><button class="row-del-btn" onclick="document.getElementById('bu-tr-${i}').remove();updateHCTotals()">✕</button></td>`;
             if (totRow) tbody.insertBefore(tr, totRow); else tbody.appendChild(tr);
         }
         function addBURow() { const totRow = document.getElementById('bu-total-row'); if (totRow) totRow.remove(); addBURowData(null); addHCTotalRow(); setupHCCalc(); }
@@ -3627,22 +3627,22 @@
             const toggleRows = checks.map(ch => {
                 const val = data?.[ch.id] || 'pass';
                 return `<div style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid #f0f0f0;">
-          <span style="flex:1;font-size:13px;font-weight:600;color:#333;">${ch.label}</span>
-          <button type="button" id="chem-${i}-${ch.id}-pass-btn" onclick="setChem(${i},'${ch.id}','pass')"
-            style="padding:5px 14px;border-radius:6px;border:2px solid ${val === 'pass' ? '#2e7d32' : '#e0e0e0'};background:${val === 'pass' ? '#e8f5e9' : '#fff'};color:${val === 'pass' ? '#2e7d32' : '#999'};font-weight:700;font-size:12px;cursor:pointer;">✓ Pass</button>
-          <button type="button" id="chem-${i}-${ch.id}-fail-btn" onclick="setChem(${i},'${ch.id}','fail')"
-            style="padding:5px 14px;border-radius:6px;border:2px solid ${val === 'fail' ? '#c62828' : '#e0e0e0'};background:${val === 'fail' ? '#ffebee' : '#fff'};color:${val === 'fail' ? '#c62828' : '#999'};font-weight:700;font-size:12px;cursor:pointer;">✗ Not Pass</button>
-          <input type="hidden" id="chem-${i}-${ch.id}-val" value="${val}">
-        </div>`;
+              <span style="flex:1;font-size:13px;font-weight:600;color:#333;">${ch.label}</span>
+              <button type="button" id="chem-${i}-${ch.id}-pass-btn" onclick="setChem(${i},'${ch.id}','pass')"
+                style="padding:5px 14px;border-radius:6px;border:2px solid ${val === 'pass' ? '#2e7d32' : '#e0e0e0'};background:${val === 'pass' ? '#e8f5e9' : '#fff'};color:${val === 'pass' ? '#2e7d32' : '#999'};font-weight:700;font-size:12px;cursor:pointer;">✓ Pass</button>
+              <button type="button" id="chem-${i}-${ch.id}-fail-btn" onclick="setChem(${i},'${ch.id}','fail')"
+                style="padding:5px 14px;border-radius:6px;border:2px solid ${val === 'fail' ? '#c62828' : '#e0e0e0'};background:${val === 'fail' ? '#ffebee' : '#fff'};color:${val === 'fail' ? '#c62828' : '#999'};font-weight:700;font-size:12px;cursor:pointer;">✗ Not Pass</button>
+              <input type="hidden" id="chem-${i}-${ch.id}-val" value="${val}">
+            </div>`;
             }).join('');
             div.innerHTML = `<div class="room-title">🧪 Room ${i} <button class="chem-room-del" onclick="document.getElementById('chem-room-${i}').remove()">✕</button></div>
-      <div class="adm-2col">
-        <div>
-          <div class="adm-field-group"><label>Room description</label><input type="text" id="chem-${i}-desc" class="adm-input" value="${data?.desc || ''}" style="text-align:left;padding:6px 10px;font-size:13px;"></div>
-          ${toggleRows}
-        </div>
-        <div class="adm-field-group"><label>💬 Comment</label><textarea id="chem-${i}-comment" style="min-height:120px;">${data?.comment || ''}</textarea></div>
-      </div>`;
+          <div class="adm-2col">
+            <div>
+              <div class="adm-field-group"><label>Room description</label><input type="text" id="chem-${i}-desc" class="adm-input" value="${data?.desc || ''}" style="text-align:left;padding:6px 10px;font-size:13px;"></div>
+              ${toggleRows}
+            </div>
+            <div class="adm-field-group"><label>💬 Comment</label><textarea id="chem-${i}-comment" style="min-height:120px;">${data?.comment || ''}</textarea></div>
+          </div>`;
             c.appendChild(div);
         }
         function setChem(i, field, val) {
@@ -3676,10 +3676,10 @@
             const i = emgEquipCount++; const c = document.getElementById('emg-equip-rows');
             const row = document.createElement('div'); row.className = 'emg-equip-row'; row.id = `emg-row-${i}`;
             row.innerHTML = `<input class="bu-hc-input" id="emg-name-${i}" value="${item.name || ''}" style="text-align:left;padding:4px 8px;">
-      <input class="adm-pass-input adm-input" id="emg-pass-${i}" type="number" min="0" value="${item.pass || 0}" oninput="calcEmgTotal(${i})">
-      <input class="adm-fail-input adm-input" id="emg-fail-${i}" type="number" min="0" value="${item.fail || 0}" oninput="calcEmgTotal(${i})">
-      <span class="adm-total-display" id="emg-total-${i}">${(item.pass || 0) + (item.fail || 0)}</span>
-      <button class="row-del-btn" onclick="document.getElementById('emg-row-${i}').remove()">✕</button>`;
+          <input class="adm-pass-input adm-input" id="emg-pass-${i}" type="number" min="0" value="${item.pass || 0}" oninput="calcEmgTotal(${i})">
+          <input class="adm-fail-input adm-input" id="emg-fail-${i}" type="number" min="0" value="${item.fail || 0}" oninput="calcEmgTotal(${i})">
+          <span class="adm-total-display" id="emg-total-${i}">${(item.pass || 0) + (item.fail || 0)}</span>
+          <button class="row-del-btn" onclick="document.getElementById('emg-row-${i}').remove()">✕</button>`;
             c.appendChild(row);
         }
         function calcEmgTotal(i) { const p = +(document.getElementById(`emg-pass-${i}`)?.value || 0), f = +(document.getElementById(`emg-fail-${i}`)?.value || 0); const t = document.getElementById(`emg-total-${i}`); if (t) t.textContent = p + f; }
